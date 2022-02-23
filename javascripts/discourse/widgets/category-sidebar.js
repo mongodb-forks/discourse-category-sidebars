@@ -55,13 +55,18 @@ createWidget("category-sidebar", {
   },
 
   html() {
+
     const router = getOwner(this).lookup("router:main");
     const currentRouteParams = router.currentRoute.params;
     const isCategoryTopicList = currentRouteParams.hasOwnProperty(
       "category_slug_path_with_id"
     );
+    const isTagList = currentRouteParams.hasOwnProperty(
+        "tag_id"
+      );
 
-    if (setups["all"] && !isCategoryTopicList) {
+
+    if (setups["all"] && !isCategoryTopicList && !isTagList) {
       return createSidebar.call(this, "all");
     } else if (isCategoryTopicList) {
       const categorySlugPath =
@@ -91,7 +96,11 @@ createWidget("category-sidebar", {
       ) {
         return createSidebar.call(this, categorySlug);
       }
+    } else if (isTagList && settings.enable_for_tags && setups[currentRouteParams.tag_id]) {
+      const tagSlug = currentRouteParams.tag_id;
+      return createSidebar.call(this, tagSlug);
     }
+
     // Remove classes if no sidebar returned
     document
       .querySelector("body")
