@@ -14,3 +14,8 @@ inherit_parent_sidebar:
 
 stick_on_scroll:
   default: true
+  
+enable_for_tags:
+  default: true
+  description: |
+    Enable this component for tag pages: /tag/<b>tagname</b> 
