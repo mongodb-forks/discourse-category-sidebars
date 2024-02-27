@@ -70,13 +70,16 @@ export default class CategorySidebar extends Component {
   }
 
   get isTagRouteAndEnabled() {
-    return this.router.currentURL.includes('/tag/') && this.siteSettings.enable_for_tags;
+    return (
+      this.router.currentURL.includes("/tag/") &&
+      this.siteSettings.enable_for_tags
+    );
   }
 
   get currentTag() {
     if (this.isTagRouteAndEnabled) {
-      const paths = this.router.currentURL.split('/');
-      const tagIndex = paths.findIndex(path => path === "tag") + 1;
+      const paths = this.router.currentURL.split("/");
+      const tagIndex = paths.findIndex((path) => path === "tag") + 1;
       return paths[tagIndex];
     }
     return null;
@@ -114,7 +117,11 @@ export default class CategorySidebar extends Component {
       ) {
         return this.parsedSetting[parentCategorySlug];
       }
-    } else if (this.isTagRouteAndEnabled && this.currentTag && this.parsedSetting[this.currentTag]) {
+    } else if (
+      this.isTagRouteAndEnabled &&
+      this.currentTag &&
+      this.parsedSetting[this.currentTag]
+    ) {
       // If the current route is a tag and there's a setting for it, use that
       return this.parsedSetting[this.currentTag];
     }
