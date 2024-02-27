@@ -71,7 +71,7 @@ export default class CategorySidebar extends Component {
 
   get isTagRouteAndEnabled() {
     return this.router.currentURL.includes('/tag/') && this.siteSettings.enable_for_tags;
-}
+  }
 
   get currentTag() {
     if (this.isTagRouteAndEnabled) {
