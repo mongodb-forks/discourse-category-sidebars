@@ -117,7 +117,7 @@ export default class CategorySidebar extends Component {
     } else if (this.isTagRouteAndEnabled && this.currentTag && this.parsedSetting[this.currentTag]) {
       // If the current route is a tag and there's a setting for it, use that
       return this.parsedSetting[this.currentTag];
-    } 
+    }
   }
 
   @action
