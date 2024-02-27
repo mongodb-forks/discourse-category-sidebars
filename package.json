@@ -1,7 +1,7 @@
 {
-  "name": "discourse-category-tag-sidebars",
+  "name": "discourse-category-sidebars",
   "version": "0.0.2",
-  "repository": "https://github.com/mongodb-forks/discourse-category-sidebars",
+  "repository": "https://github.com/discourse/discourse-category-sidebars",
   "author": "Discourse",
   "license": "MIT",
   "devDependencies": {
